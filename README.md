@@ -13,7 +13,7 @@ python3 -m pip install -r requirements.txt
 python3 test.py
 ```
 
-## another way to get files
+## another way to get files (Chrome only)
 Is to first to click and download the file to browser, then download the file to local folder from chrome by injecting javascript on the google://downloads -page as per https://stackoverflow.com/questions/48263317/selenium-python-waiting-for-a-download-process-to-complete-using-chrome-web/48267887#48267887
 ```
 python3 test3.py
