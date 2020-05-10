@@ -19,6 +19,11 @@ Is to first to click and download the file to browser, then download the file to
 python3 test3.py
 ```
 
+## another way to get files (Firefox only)
+```
+python3 test4.py
+```
+
 License
 -------
 
