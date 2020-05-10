@@ -71,3 +71,5 @@ content = get_file_content(driver, files[0])
 # save the content in a local file in the working directory
 with open(os.path.basename(files[0]), 'wb') as f:
   f.write(content)
+
+driver.close()
