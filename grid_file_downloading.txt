@@ -1,0 +1,143 @@
+https://stackoverflow.com/questions/44738502/downloading-a-excel-file-on-selenium-grid-and-reading-it
+
+https://gist.github.com/krmahadevan/1766772
+https://rationaleemotions.wordpress.com/2016/01/15/where-did-my-test-run/
+https://github.com/RationaleEmotions/talk2grid#how-to-find-out-the-node-to-which-a-test-was-routed-to-
+
+https://github.com/nicegraham/selenium-grid2-api
+
+file upload:
+https://github.com/RationaleEmotions/talk2grid/blob/master/src/main/java/com/rationaleemotions/GridApiAssistant.java
+
+
+
+$ curl http://localhost:4444/grid/api/hub
+{
+  "browserTimeout": 16000,
+  "capabilityMatcher": "org.openqa.grid.internal.utils.DefaultCapabilityMatcher",
+  "cleanUpCycle": 5000,
+  "custom": {
+  },
+  "debug": false,
+  "host": "172.17.0.2",
+  "newSessionRequestCount": 0,
+  "newSessionWaitTimeout": 600000,
+  "port": 4445,
+  "registry": "de.zalando.ep.zalenium.registry.ZaleniumRegistry",
+  "role": "hub",
+  "servlets": [
+  ],
+  "slotCounts": {
+    "free": 1,
+    "total": 2
+  },
+  "success": true,
+  "throwOnCapabilityNotPresent": true,
+  "timeout": 1800,
+  "withoutServlets": [
+  ]
+}
+
+$ curl http://localhost:4444/grid/api/proxy
+{
+  "msg": "Cannot find proxy with ID =null in the registry.",
+  "success": false
+}
+
+
+curl http://localhost:4444/dashboard/information
+[
+  {
+    "seleniumSessionId": "56d5ad1dcc7b28e470260cdba386d732",
+    "testName": "56d5ad1dcc7b28e470260cdba386d732",
+    "timestamp": "Jun 21, 2020 9:29:06 AM",
+    "addedToDashboardTime": 1592724661108,
+    "proxyName": "Zalenium",
+    "browser": "chrome",
+    "browserVersion": "83.0.4103.61",
+    "platform": "LINUX",
+    "fileName": "zalenium_56d5ad1dcc7b28e470260cdba386d732_chrome_LINUX_20200621092906305_COMPLETED.mp4",
+    "fileCount": 2,
+    "fileExtension": ".mp4",
+    "videoFolderPath": "/home/seluser/videos",
+    "logsFolderPath": "/home/seluser/videos/logs/zalenium_56d5ad1dcc7b28e470260cdba386d732_chrome_LINUX_20200621092906305_COMPLETED",
+    "testNameNoExtension": "zalenium_56d5ad1dcc7b28e470260cdba386d732_chrome_LINUX_20200621092906305_COMPLETED",
+    "screenDimension": "1920x1080",
+    "timeZone": "Europe/Berlin",
+    "build": "",
+    "testFileNameTemplate": "{proxyName}_{testName}_{browser}_{platform}_{timestamp}_{testStatus}",
+    "seleniumLogFileName": "logs/zalenium_56d5ad1dcc7b28e470260cdba386d732_chrome_LINUX_20200621092906305_COMPLETED/selenium-multinode-stderr.log",
+    "browserDriverLogFileName": "logs/zalenium_56d5ad1dcc7b28e470260cdba386d732_chrome_LINUX_20200621092906305_COMPLETED/chrome_driver.log",
+    "retentionDate": "Jun 24, 2020 9:29:06 AM",
+    "testStatus": "COMPLETED",
+    "videoRecorded": true
+  },
+  {
+    "seleniumSessionId": "8d65ff301ed6a1c7573814bca626fa93",
+    "testName": "8d65ff301ed6a1c7573814bca626fa93",
+    "timestamp": "Jun 21, 2020 9:41:38 AM",
+    "addedToDashboardTime": 1592725412654,
+    "proxyName": "Zalenium",
+    "browser": "chrome",
+    "browserVersion": "83.0.4103.61",
+    "platform": "LINUX",
+    "fileName": "zalenium_8d65ff301ed6a1c7573814bca626fa93_chrome_LINUX_20200621094138959_COMPLETED.mp4",
+    "fileCount": 2,
+    "fileExtension": ".mp4",
+    "videoFolderPath": "/home/seluser/videos",
+    "logsFolderPath": "/home/seluser/videos/logs/zalenium_8d65ff301ed6a1c7573814bca626fa93_chrome_LINUX_20200621094138959_COMPLETED",
+    "testNameNoExtension": "zalenium_8d65ff301ed6a1c7573814bca626fa93_chrome_LINUX_20200621094138959_COMPLETED",
+    "screenDimension": "1920x1080",
+    "timeZone": "Europe/Berlin",
+    "build": "",
+    "testFileNameTemplate": "{proxyName}_{testName}_{browser}_{platform}_{timestamp}_{testStatus}",
+    "seleniumLogFileName": "logs/zalenium_8d65ff301ed6a1c7573814bca626fa93_chrome_LINUX_20200621094138959_COMPLETED/selenium-multinode-stderr.log",
+    "browserDriverLogFileName": "logs/zalenium_8d65ff301ed6a1c7573814bca626fa93_chrome_LINUX_20200621094138959_COMPLETED/chrome_driver.log",
+    "retentionDate": "Jun 24, 2020 9:41:38 AM",
+    "testStatus": "COMPLETED",
+    "videoRecorded": true
+  }
+]
+
+
+$ curl http://localhost:4444/grid/api/testsession?session=a7319f22e780dddc7263b3032f66e071
+{
+  "inactivityTime": 47153,
+  "internalKey": "80863bf1-cc21-40a9-a798-00995d1c8efe",
+  "msg": "slot found !",
+  "proxyId": "http:\u002f\u002f172.17.0.3:40008",
+  "session": "a7319f22e780dddc7263b3032f66e071",
+  "success": true
+}
+
+$ curl http://localhost:4444/dashboard/zalenium_87adbc08ac7ee17b590324bc7470ec52_chrome_LINUX_20200620094837538_COMPLETED.pdf --output test.pdf
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  425k  100  425k    0     0   103M      0 --:--:-- --:--:-- --:--:--  103M
+
+$ google-chrome test.pdf 
+
+
+docker exec -it 8c03dc6fc3c8 bash
+seluser@8c03dc6fc3c8:~$ ls -la videos
+total 2232
+drwxr-xr-x 6 seluser seluser   4096 Jun 21 10:00 .
+drwxrwxr-x 1 seluser seluser   4096 Jun 21 09:58 ..
+drwxr-xr-x 2 seluser seluser   4096 Jun 21 09:14 css
+-rwxr--r-- 1 seluser seluser  10980 Jun 21 10:00 dashboard.html
+-rw-r--r-- 1 seluser seluser     46 Jun 21 10:00 executedTestsInfo.json
+drwxr-xr-x 2 seluser seluser   4096 Jun 21 09:14 img
+drwxr-xr-x 2 seluser seluser   4096 Jun 21 09:14 js
+drwxr-xr-x 5 seluser seluser   4096 Jun 21 10:00 logs
+-rw-r--r-- 1 seluser seluser   3633 Jun 21 10:00 testInformation.json
+-rw-r--r-- 1 seluser seluser  15086 Mar 24 10:17 zalando.ico
+-rw-r--r-- 1 seluser seluser 299893 Jun 21 09:31 zalenium_56d5ad1dcc7b28e470260cdba386d732_chrome_LINUX_20200621092906305_COMPLETED.mp4
+-rw-r--r-- 1 seluser seluser 435203 Jun 21 09:31 zalenium_56d5ad1dcc7b28e470260cdba386d732_chrome_LINUX_20200621092906305_COMPLETED.pdf
+-rw-r--r-- 1 seluser seluser 299586 Jun 21 10:00 zalenium_72a6543bb24f9d54803406f20d67c701_chrome_LINUX_20200621095858515_COMPLETED.mp4
+-rw-r--r-- 1 seluser seluser 435203 Jun 21 10:00 zalenium_72a6543bb24f9d54803406f20d67c701_chrome_LINUX_20200621095858515_COMPLETED.pdf
+-rw-r--r-- 1 seluser seluser 298429 Jun 21 09:43 zalenium_8d65ff301ed6a1c7573814bca626fa93_chrome_LINUX_20200621094138959_COMPLETED.mp4
+-rw-r--r-- 1 seluser seluser 435203 Jun 21 09:43 zalenium_8d65ff301ed6a1c7573814bca626fa93_chrome_LINUX_20200621094138959_COMPLETED.pdf
+
+
+
