@@ -1,4 +1,4 @@
-# RobotFramework / Python3 / Selenium .PDF File Download (no blob)
+# RobotFramework / Python3 / Selenium .PDF File Download
 Selenium provides possiblity to download files to local machine. However when using remote webdriver from local machine, in order to connect to remotely located selenium grid, the file download only downloads file to the remotely located grid machine. Therefore the helper.py has javascript code in order to workaround the restrictions.
 
 The examples work by downloading the .pdf file to the local directory.
