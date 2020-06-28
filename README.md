@@ -24,5 +24,5 @@ rm *.pdf ; robot local_chrome_pdf_no_blob.robot ; ls *.pdf
 License
 -------
 
-selenium-grid-file-download-workaround is free and unencumbered public domain software. For more
+robot-selenium-download-pdf is free and unencumbered public domain software. For more
 information, see <http://unlicense.org/> or the accompanying UNLICENSE file.
